@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-heading: 'Staatliches', cursive;
+  --ff-body: 'Palanquin', sans-serif;
+
+  --bg-primary: hsl(233, 100%, 97%);
+  --bg-secondary: hsl(218, 17%, 62%);
+
+  font-size: 62.5%;
+
+  --hue: 274;
+  --fc-primary: hsl(var(--hue), 0%, 100%);
+  --fc-secondary: hsl(var(--hue), 17%, 35%);
+  --fc-secondary-lorem: hsl(var(--hue), 84%, 12%);
+}
+
+.page {
+  text-align: center;
+}
+
+header {
+  background: var(--bg-secondary);
+  height: 27.9rem;
+}
+
+header img {
+  margin: 3.2rem auto;
+  width: 13.7rem;
+  height: 13.7rem;
+}
+
+header h1 {
+  padding: 8px;
+  width: 100%;
+  font-size: 4rem;
+  line-height: 3.4rem;
+  color: var(--fc-primary);
+  background: hsl(var(--hue), 18%, 79%);
+}
+
+body {
+  font-family: var(--ff-body);
+  color: var(--fc-secondary-lorem);
+  background: var(--bg-primary);
+}
+
+h1,
+h2 {
+  font-family: var(--ff-heading);
+}
+
+main {
+  margin: 3.2rem auto;
+  width: 32rem;
+}
+
+main p {
+  margin: 0 auto 6.3rem;
+  width: 30rem;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+.img-wrapper {
+  position: relative;
+  margin-bottom: 3.2rem;
+  animation: downtop 500ms reverse;
+}
+
+main h2 {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  background-color: hsl(312, 91%, 96%);
+  border-radius: 2rem;
+  width: 11.2rem;
+  font-size: 2rem;
+  line-height: 3.4rem;
+  animation: topdown 500ms 300ms reverse backwards;
+}
+
+@keyframes downtop {
+  100% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+
+@keyframes topdown {
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
