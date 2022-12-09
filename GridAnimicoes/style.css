@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-heading: 'Staatliches', cursive;
+  --ff-body: 'Palanquin', sans-serif;
+
+  --bg-primary: hsl(233, 100%, 97%);
+  --bg-secondary: hsl(218, 17%, 62%);
+
+  font-size: 62.5%;
+
+  --hue: 274;
+  --fc-primary: hsl(var(--hue), 0%, 100%);
+  --fc-secondary: hsl(var(--hue), 17%, 35%);
+  --fc-secondary-lorem: hsl(var(--hue), 84%, 12%);
+}
+
+.page {
+  text-align: center;
+}
+
+.header-wrapper {
+  background: var(--bg-secondary);
+  height: 27.9rem;
+}
+
+header img {
+  margin: 3.2rem auto;
+  width: 13.7rem;
+  height: 13.7rem;
+}
+
+header h1 {
+  padding: 8px;
+  width: 100%;
+  font-size: 4rem;
+  line-height: 3.4rem;
+  color: var(--fc-primary);
+  background: hsl(var(--hue), 18%, 79%);
+}
+
+body {
+  font-family: var(--ff-body);
+  color: var(--fc-secondary-lorem);
+  background: var(--bg-primary);
+}
+
+h1,
+h2 {
+  font-family: var(--ff-heading);
+}
+
+main {
+  margin: 3.2rem auto;
+  width: 32rem;
+}
+
+header p {
+  margin: 1.6rem auto 6.3rem;
+  width: 30rem;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+.img-wrapper {
+  position: relative;
+  margin-bottom: 3.2rem;
+  animation: downtop 500ms reverse;
+}
+
+main h2 {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  background-color: hsl(312, 91%, 96%);
+  border-radius: 2rem;
+  width: 11.2rem;
+  font-size: 2rem;
+  line-height: 3.4rem;
+  animation: topdown 500ms 300ms reverse backwards;
+}
+
+footer {
+  display: none;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--fc-secondary-lorem);
+}
+
+@keyframes downtop {
+  100% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+
+@keyframes topdown {
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .page {
+    display: grid;
+    grid-template-areas:
+      "header main main"
+      "header main main";
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  header {
+    grid-area: header;
+    background-color: var(--bg-secondary);
+  }
+
+  header p {
+    width: 30rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 400;
+    color: var(--fc-primary);
+  }
+
+  main {
+    padding: 6.4rem 8.1rem 12.4rem 9.8rem;
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+      "A A"
+      "B A"
+      "B B";
+    grid-template-columns: 1fr 1fr;
+    gap: 3.2rem;
+    width: 100%;
+  }
+
+  main h2 {
+    display: none;
+  }
+
+  main img:nth-child(1) {
+    grid-area: A;
+  }
+
+  footer {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    position: absolute;
+    width: 100%;
+    left: 37.7rem;
+    text-align: center;
+    bottom: 4.6rem;
+  }
+
+}
