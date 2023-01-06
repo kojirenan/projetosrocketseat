@@ -10,11 +10,21 @@
   --fs-text: clamp(11rem, 9rem + 5vw, 12.6rem);
 
   --base-color: 194;
-  --color-primary: hsla(var(--base-color), 6%, 21%, 1);
-  --color-secondary: hsla(var(--base-color), 9%, 89%, 1);
-  --color-press: hsla(var(--base-color), 97%, 31%, 1);
-  --color-hold1: hsla(var(--base-color), 6%, 79%, 1);
-  --color-hold2: hsla(var(--base-color), 97%, 21%, 1);
+  --fc: hsla(var(--base-color), 6%, 21%, 1);
+  --bc: hsla(var(--base-color), 9%, 89%, 1);
+  --pc: hsla(var(--base-color), 97%, 31%, 1);
+  --hc: hsla(var(--base-color), 6%, 79%, 1);
+  --phc: hsla(var(--base-color), 97%, 21%, 1);
+  --bg: hsla(var(--base-color), 0%, 100%, 1);
+  --bci: hsla(var(--base-color), 9%, 89%, 1);
+
+  --fc-dark: hsla(var(--base-color), 7%, 78%, 1);
+  --bc-dark: hsla(var(--base-color), 6%, 17%, 1);
+  --pc-dark: hsla(var(--base-color), 74%, 15%, 1);
+  --hc-dark: hsla(var(--base-color), 6%, 27%, 1);
+  --phc-dark: hsla(var(--base-color), 74%, 25%, 1);
+  --bg-dark: hsla(var(--base-color), 5%, 7%, 1);
+  --bci-dark: hsla(var(--base-color), 7%, 78%, 1);
 }
 
 body {
@@ -23,6 +33,7 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: var(--ff-text);
+  background: var(--bg);
 }
 
 main {
@@ -32,6 +43,32 @@ main {
   gap: 4.8rem;
 }
 
+.color-mode {
+  position: absolute;
+  right: 6.4rem;
+  top: 6.4rem;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.color-mode button,
+.buttons-timer button {
+  background: none;
+}
+
+.color-mode button svg path,
+.buttons-timer button svg path,
+.buttons-sound button svg path {
+  fill: var(--fc);
+}
+
+.buttons-sound svg {
+  margin-bottom: 4.8rem;
+}
+
 .time {
   text-align: center;
 }
@@ -39,12 +76,7 @@ main {
 span {
   font-size: var(--fs-text);
   line-height: 14.8rem;
-  color: var(--color-primary);
-}
-
-button {
-  border: none;
-  cursor: pointer;
+  color: var(--fc);
 }
 
 .buttons-timer {
@@ -54,28 +86,22 @@ button {
   gap: clamp(2rem, 1rem + 5vw, 4rem);
 }
 
-.buttons-timer button {
-  background: none;
-}
-
-.buttons-timer svg path {
-  fill: var(--color-primary);
-}
-
-.buttons-timer button:hover svg path {
-  fill: var(--color-press);
-}
-
 .buttons-sound {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(2rem, 1rem + 5vw, 3.2rem);
+}
 
+.sound-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .buttons-sound button {
   border-radius: 2.4rem;
-  background: var(--color-secondary);
+  background: var(--bc);
   width: 13.2rem;
   height: 15.2rem;
 }
@@ -85,19 +111,43 @@ button {
 }
 
 .buttons-sound .on {
-  background: var(--color-press);
+  background: var(--pc);
 }
 
 .buttons-sound .on:hover {
-  background: var(--color-hold2);
+  background: var(--phc);
 }
 
 .buttons-sound .on svg path {
-  fill: var(--color-secondary)
+  fill: var(--bci);
 }
 
 .buttons-sound button:hover {
-  background: var(--color-hold1);
+  background: var(--hc);
+}
+
+.buttons-sound input {
+  position: absolute;
+  bottom: 2.4rem;
+  width: 9rem;
+  height: .4rem;
+  background-color: var(--fc);
+  appearance: none;
+  border-radius: .5rem;
+}
+
+.buttons-sound input::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--fc);
+  cursor: pointer;
+}
+
+.on+input,
+.on+input::-webkit-slider-thumb {
+  background: var(--bci);
 }
 
 @media (min-width: 768px) {
@@ -111,6 +161,6 @@ button {
   span {
     font-size: var(--fs-text);
     line-height: 14.8rem;
-    color: var(--color-primary);
+    color: var(--fc);
   }
 }

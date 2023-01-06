@@ -1,4 +1,13 @@
 const kitchenTimer = new Audio("./sounds/Timer.mp3")
+const soundForest = new Audio("./sounds/Floresta.wav")
+const soundRain = new Audio("./sounds/Chuva.wav")
+const soundCoffe = new Audio("./sounds/Cafeteria.wav")
+const soundFireplace = new Audio("./sounds/Lareira.wav")
+
+soundForest.loop = true
+soundRain.loop = true
+soundCoffe.loop = true
+soundFireplace.loop = true
 
 function sound({
   buttonForest,
@@ -6,17 +15,6 @@ function sound({
   buttonCoffee,
   buttonFireplace,
 }) {
-  const soundForest = new Audio("./sounds/Floresta.wav")
-  const soundRain = new Audio("./sounds/Chuva.wav")
-  const soundCoffe = new Audio("./sounds/Cafeteria.wav")
-  const soundFireplace = new Audio("./sounds/Lareira.wav")
-
-  soundForest.loop = true
-  soundRain.loop = true
-  soundCoffe.loop = true
-  soundFireplace.loop = true
-
-
   function forest() {
     buttonForest.classList.toggle('on')
     buttonRain.classList.remove('on')
@@ -27,6 +25,7 @@ function sound({
     soundCoffe.pause()
     soundFireplace.pause()
   }
+
   function rain() {
     buttonForest.classList.remove('on')
     buttonRain.classList.toggle('on')
@@ -37,6 +36,7 @@ function sound({
     soundCoffe.pause()
     soundFireplace.pause()
   }
+
   function coffe() {
     buttonForest.classList.remove('on')
     buttonRain.classList.remove('on')
@@ -47,6 +47,7 @@ function sound({
     onOff(soundCoffe)
     soundFireplace.pause()
   }
+
   function fireplace() {
     buttonForest.classList.remove('on')
     buttonRain.classList.remove('on')
@@ -67,11 +68,14 @@ function sound({
     rain,
     coffe,
     fireplace,
-    kitchenTimer,
   }
 }
 
 export {
   sound,
   kitchenTimer,
+  soundForest,
+  soundRain,
+  soundCoffe,
+  soundFireplace,
 }
